@@ -294,17 +294,34 @@
       </div>
     </div>
 
-    <!-- RNODE CONFIG -->
-    <div class="rnode-config">
-      <div class="rnode-config-header">
+    <!-- INTERFACE CONFIGS -->
+    <div class="iface-config">
+      <div class="iface-config-header">
         <div class="feature-icon" style="margin-bottom: 0;">📻</div>
         <div>
-          <h3>Configuração RNode para 868 MHz</h3>
-          <p>Parâmetros recomendados para operar um RNode LoRa em Portugal. Adiciona este bloco ao ficheiro de configuração do Reticulum (<code>~/.reticulum/config</code>).</p>
+          <h3>Configurações de Interface</h3>
+          <p>Exemplos de configuração para o ficheiro <code>~/.reticulum/config</code>. Escolhe a interface adequada ao teu setup.</p>
         </div>
       </div>
-      <div class="code-block" style="margin-top: 1.2rem;">
-        <pre><span class="comment"># Interface RNode LoRa — 868 MHz (Europa / Portugal)</span>
+
+      <!-- Radio inputs (must be siblings of panels for CSS ~ selector) -->
+      <input type="radio" name="iface-tab" id="tab-868" class="iface-radio" checked>
+      <input type="radio" name="iface-tab" id="tab-433" class="iface-radio">
+      <input type="radio" name="iface-tab" id="tab-auto" class="iface-radio">
+      <input type="radio" name="iface-tab" id="tab-tcp" class="iface-radio">
+
+      <!-- Tab labels -->
+      <div class="iface-tabs">
+        <label for="tab-868">RNode 868</label>
+        <label for="tab-433">RNode 433</label>
+        <label for="tab-auto">Auto WiFi</label>
+        <label for="tab-tcp">TCP Client</label>
+      </div>
+
+      <!-- RNode 868 MHz -->
+      <div class="iface-panel" id="panel-868">
+        <div class="code-block">
+          <pre><span class="comment"># Interface RNode LoRa — 868 MHz (Europa / Portugal)</span>
 
   <span class="cmd">[[RNode LoRa Interface]]</span>
     <span class="flag">type</span> = RNodeInterface
@@ -314,34 +331,127 @@
     <span class="flag">txpower</span> = <span class="cmd">22</span>
     <span class="flag">spreadingfactor</span> = <span class="cmd">7</span>
     <span class="flag">codingrate</span> = <span class="cmd">5</span></pre>
+        </div>
+        <div class="config-params">
+          <div class="config-param">
+            <span class="param-label">frequency</span>
+            <span class="param-value">869.650 MHz</span>
+            <span class="param-desc">Sub-banda g3 (869.4–869.65 MHz) — permite até 500 mW ERP e 10% duty cycle</span>
+          </div>
+          <div class="config-param">
+            <span class="param-label">bandwidth</span>
+            <span class="param-value">62.5 kHz</span>
+            <span class="param-desc">Largura de banda do canal — bom equilíbrio entre alcance e débito</span>
+          </div>
+          <div class="config-param">
+            <span class="param-label">txpower</span>
+            <span class="param-value">22 dBm</span>
+            <span class="param-desc">Potência de transmissão (~158 mW) — dentro do limite de 500 mW da sub-banda g3</span>
+          </div>
+          <div class="config-param">
+            <span class="param-label">spreadingfactor</span>
+            <span class="param-value">SF7</span>
+            <span class="param-desc">Fator de espalhamento mais rápido — maior débito, menor alcance vs SF12</span>
+          </div>
+          <div class="config-param">
+            <span class="param-label">codingrate</span>
+            <span class="param-value">4/5</span>
+            <span class="param-desc">Menor redundância FEC — maximiza a taxa de dados útil</span>
+          </div>
+        </div>
       </div>
-      <div class="config-params">
-        <div class="config-param">
-          <span class="param-label">frequency</span>
-          <span class="param-value">869.650 MHz</span>
-          <span class="param-desc">Sub-banda g3 (869.4–869.65 MHz) — permite até 500 mW ERP e 10% duty cycle</span>
+
+      <!-- RNode 433 MHz -->
+      <div class="iface-panel" id="panel-433">
+        <div class="code-block">
+          <pre><span class="comment"># Interface RNode LoRa — 433 MHz (ISM / Portugal)</span>
+
+  <span class="cmd">[[RNode LoRa 433]]</span>
+    <span class="flag">type</span> = RNodeInterface
+    <span class="flag">port</span> = /dev/ttyUSB0
+    <span class="flag">frequency</span> = <span class="cmd">433775000</span>
+    <span class="flag">bandwidth</span> = <span class="cmd">62500</span>
+    <span class="flag">txpower</span> = <span class="cmd">7</span>
+    <span class="flag">spreadingfactor</span> = <span class="cmd">7</span>
+    <span class="flag">codingrate</span> = <span class="cmd">5</span></pre>
         </div>
-        <div class="config-param">
-          <span class="param-label">bandwidth</span>
-          <span class="param-value">62.5 kHz</span>
-          <span class="param-desc">Largura de banda do canal — bom equilíbrio entre alcance e débito</span>
-        </div>
-        <div class="config-param">
-          <span class="param-label">txpower</span>
-          <span class="param-value">22 dBm</span>
-          <span class="param-desc">Potência de transmissão (~158 mW) — dentro do limite de 500 mW da sub-banda g3</span>
-        </div>
-        <div class="config-param">
-          <span class="param-label">spreadingfactor</span>
-          <span class="param-value">SF7</span>
-          <span class="param-desc">Fator de espalhamento mais rápido — maior débito, menor alcance vs SF12</span>
-        </div>
-        <div class="config-param">
-          <span class="param-label">codingrate</span>
-          <span class="param-value">4/5</span>
-          <span class="param-desc">Menor redundância FEC — maximiza a taxa de dados útil</span>
+        <div class="config-params">
+          <div class="config-param">
+            <span class="param-label">frequency</span>
+            <span class="param-value">433.775 MHz</span>
+            <span class="param-desc">Banda ISM 433 MHz — ANACOM permite até 10 mW e 10% duty cycle</span>
+          </div>
+          <div class="config-param">
+            <span class="param-label">bandwidth</span>
+            <span class="param-value">62.5 kHz</span>
+            <span class="param-desc">Largura de banda do canal — bom equilíbrio entre alcance e débito</span>
+          </div>
+          <div class="config-param">
+            <span class="param-label">txpower</span>
+            <span class="param-value">7 dBm</span>
+            <span class="param-desc">Potência de transmissão (~5 mW) — dentro do limite ANACOM de 10 mW</span>
+          </div>
+          <div class="config-param">
+            <span class="param-label">spreadingfactor</span>
+            <span class="param-value">SF7</span>
+            <span class="param-desc">Fator de espalhamento mais rápido — maior débito, menor alcance vs SF12</span>
+          </div>
+          <div class="config-param">
+            <span class="param-label">codingrate</span>
+            <span class="param-value">4/5</span>
+            <span class="param-desc">Menor redundância FEC — maximiza a taxa de dados útil</span>
+          </div>
         </div>
       </div>
+
+      <!-- Auto WiFi/Ethernet -->
+      <div class="iface-panel" id="panel-auto">
+        <div class="code-block">
+          <pre><span class="comment"># Interface Auto — WiFi / Ethernet (zero config)</span>
+
+  <span class="cmd">[[Default Interface]]</span>
+    <span class="flag">type</span> = AutoInterface
+    <span class="flag">enabled</span> = <span class="cmd">yes</span></pre>
+        </div>
+        <div class="config-params">
+          <div class="config-param">
+            <span class="param-label">type</span>
+            <span class="param-value">AutoInterface</span>
+            <span class="param-desc">Descoberta automática de nós Reticulum na rede local via IPv6 multicast</span>
+          </div>
+          <div class="config-param">
+            <span class="param-label">enabled</span>
+            <span class="param-value">yes</span>
+            <span class="param-desc">Sem configuração adicional — funciona em qualquer rede WiFi ou Ethernet</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TCP Client -->
+      <div class="iface-panel" id="panel-tcp">
+        <div class="code-block">
+          <pre><span class="comment"># TCP Client — Rede Reticulum Portugal</span>
+
+  <span class="cmd">[[Reticulum PT]]</span>
+    <span class="flag">type</span> = TCPClientInterface
+    <span class="flag">enabled</span> = <span class="cmd">yes</span>
+    <span class="flag">target_host</span> = <span class="cmd">network.reticulum.pt</span>
+    <span class="flag">target_port</span> = <span class="cmd">4242</span></pre>
+        </div>
+        <div class="config-params">
+          <div class="config-param">
+            <span class="param-label">target_host</span>
+            <span class="param-value">network.reticulum.pt</span>
+            <span class="param-desc">Servidor da rede Reticulum em Portugal</span>
+          </div>
+          <div class="config-param">
+            <span class="param-label">target_port</span>
+            <span class="param-value">4242</span>
+            <span class="param-desc">Porta TCP do servidor — ligação automática com reconexão</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>

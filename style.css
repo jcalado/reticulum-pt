@@ -545,29 +545,30 @@ section {
 .ism-note strong { color: var(--warning); font-weight: 600; }
 
 /* ─── RNODE CONFIG ─── */
-.rnode-config {
+/* ─── INTERFACE CONFIG (tabbed) ─── */
+.iface-config {
   margin-top: 2.5rem;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 2rem;
 }
-.rnode-config-header {
+.iface-config-header {
   display: flex;
   align-items: flex-start;
   gap: 1.2rem;
 }
-.rnode-config-header h3 {
+.iface-config-header h3 {
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 0.3rem;
 }
-.rnode-config-header p {
+.iface-config-header p {
   font-size: 0.85rem;
   color: var(--text-dim);
   font-weight: 300;
 }
-.rnode-config-header code {
+.iface-config-header code {
   font-family: 'Space Mono', monospace;
   font-size: 0.78rem;
   background: var(--bg-surface);
@@ -576,6 +577,55 @@ section {
   border-radius: 4px;
   color: var(--accent);
 }
+
+/* Tabs */
+.iface-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+.iface-radio {
+  display: none;
+}
+.iface-tabs label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.iface-tabs label:hover {
+  color: var(--text);
+  border-color: var(--text-muted);
+}
+#tab-868:checked ~ .iface-tabs label[for="tab-868"],
+#tab-433:checked ~ .iface-tabs label[for="tab-433"],
+#tab-auto:checked ~ .iface-tabs label[for="tab-auto"],
+#tab-tcp:checked ~ .iface-tabs label[for="tab-tcp"] {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+/* Panels — CSS-only tab switching */
+.iface-panel {
+  display: none;
+  margin-top: 1.2rem;
+}
+#tab-868:checked ~ #panel-868,
+#tab-433:checked ~ #panel-433,
+#tab-auto:checked ~ #panel-auto,
+#tab-tcp:checked ~ #panel-tcp {
+  display: block;
+}
+
+/* Config params (shared) */
 .config-params {
   display: flex;
   flex-direction: column;
@@ -584,7 +634,7 @@ section {
 }
 .config-param {
   display: grid;
-  grid-template-columns: 130px 100px 1fr;
+  grid-template-columns: 140px 180px 1fr;
   gap: 1rem;
   align-items: baseline;
   padding: 0.6rem 0;
@@ -613,7 +663,7 @@ section {
     grid-template-columns: 1fr;
     gap: 0.2rem;
   }
-  .rnode-config-header {
+  .iface-config-header {
     flex-direction: column;
   }
 }
