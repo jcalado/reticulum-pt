@@ -307,6 +307,8 @@
       <!-- Radio inputs (must be siblings of panels for CSS ~ selector) -->
       <input type="radio" name="iface-tab" id="tab-868" class="iface-radio" checked>
       <input type="radio" name="iface-tab" id="tab-433" class="iface-radio">
+      <input type="radio" name="iface-tab" id="tab-24g" class="iface-radio">
+      <input type="radio" name="iface-tab" id="tab-wifi" class="iface-radio">
       <input type="radio" name="iface-tab" id="tab-auto" class="iface-radio">
       <input type="radio" name="iface-tab" id="tab-tcp" class="iface-radio">
 
@@ -314,6 +316,8 @@
       <div class="iface-tabs">
         <label for="tab-868">RNode 868</label>
         <label for="tab-433">RNode 433</label>
+        <label for="tab-24g">RNode 2.4G</label>
+        <label for="tab-wifi">WiFi 2.4G</label>
         <label for="tab-auto">Auto WiFi</label>
         <label for="tab-tcp">TCP Client</label>
       </div>
@@ -400,6 +404,85 @@
             <span class="param-label">codingrate</span>
             <span class="param-value">4/5</span>
             <span class="param-desc">Menor redundância FEC — maximiza a taxa de dados útil</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RNode 2.4 GHz LoRa -->
+      <div class="iface-panel" id="panel-24g">
+        <div class="code-block">
+          <pre><span class="comment"># Interface RNode LoRa — 2.4 GHz</span>
+
+  <span class="cmd">[[RNode LoRa 2.4G]]</span>
+    <span class="flag">type</span> = RNodeInterface
+    <span class="flag">port</span> = /dev/ttyUSB0
+    <span class="flag">frequency</span> = <span class="cmd">2475000000</span>
+    <span class="flag">bandwidth</span> = <span class="cmd">812000</span>
+    <span class="flag">txpower</span> = <span class="cmd">20</span>
+    <span class="flag">spreadingfactor</span> = <span class="cmd">8</span>
+    <span class="flag">codingrate</span> = <span class="cmd">5</span></pre>
+        </div>
+        <div class="config-params">
+          <div class="config-param">
+            <span class="param-label">frequency</span>
+            <span class="param-value">2475 MHz</span>
+            <span class="param-desc">Banda ISM 2.4 GHz — sem restrições de duty cycle</span>
+          </div>
+          <div class="config-param">
+            <span class="param-label">bandwidth</span>
+            <span class="param-value">812 kHz</span>
+            <span class="param-desc">Largura de banda elevada — maior débito que LoRa sub-GHz</span>
+          </div>
+          <div class="config-param">
+            <span class="param-label">txpower</span>
+            <span class="param-value">20 dBm</span>
+            <span class="param-desc">Potência de transmissão (~100 mW)</span>
+          </div>
+          <div class="config-param">
+            <span class="param-label">spreadingfactor</span>
+            <span class="param-value">8</span>
+            <span class="param-desc">Bom equilíbrio entre débito e alcance para 2.4 GHz</span>
+          </div>
+          <div class="config-param">
+            <span class="param-label">codingrate</span>
+            <span class="param-value">5</span>
+            <span class="param-desc">Menor redundância FEC — maximiza a taxa de dados útil</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- WiFi 2.4 GHz 802.11 B/G/N -->
+      <div class="iface-panel" id="panel-wifi">
+        <div class="code-block">
+          <pre><span class="comment"># WiFi 2.4 GHz — 802.11 B/G/N (RNode AP)</span>
+
+  <span class="cmd">Canal</span>        = <span class="cmd">8</span>
+  <span class="cmd">Normas</span>       = <span class="cmd">802.11 B/G/N</span>
+  <span class="cmd">TX Power</span>     = <span class="cmd">20 dBm</span>
+  <span class="cmd">SSID</span>         = <span class="cmd">RNode</span>
+  <span class="cmd">Password</span>     = <span class="cmd">R3ticulumPT#</span>
+  <span class="cmd">Encriptação</span>  = <span class="cmd">WPA/WPA2</span></pre>
+        </div>
+        <div class="config-params">
+          <div class="config-param">
+            <span class="param-label">Canal</span>
+            <span class="param-value">8</span>
+            <span class="param-desc">Canal WiFi 2.4 GHz (2447 MHz)</span>
+          </div>
+          <div class="config-param">
+            <span class="param-label">SSID</span>
+            <span class="param-value">RNode</span>
+            <span class="param-desc">Nome da rede WiFi do RNode em modo AP</span>
+          </div>
+          <div class="config-param">
+            <span class="param-label">Password</span>
+            <span class="param-value">R3ticulumPT#</span>
+            <span class="param-desc">Password da rede — WPA/WPA2</span>
+          </div>
+          <div class="config-param">
+            <span class="param-label">TX Power</span>
+            <span class="param-value">20 dBm</span>
+            <span class="param-desc">Potência de transmissão WiFi (~100 mW)</span>
           </div>
         </div>
       </div>

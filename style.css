@@ -606,6 +606,8 @@ section {
 }
 #tab-868:checked ~ .iface-tabs label[for="tab-868"],
 #tab-433:checked ~ .iface-tabs label[for="tab-433"],
+#tab-24g:checked ~ .iface-tabs label[for="tab-24g"],
+#tab-wifi:checked ~ .iface-tabs label[for="tab-wifi"],
 #tab-auto:checked ~ .iface-tabs label[for="tab-auto"],
 #tab-tcp:checked ~ .iface-tabs label[for="tab-tcp"] {
   background: var(--accent);
@@ -620,6 +622,8 @@ section {
 }
 #tab-868:checked ~ #panel-868,
 #tab-433:checked ~ #panel-433,
+#tab-24g:checked ~ #panel-24g,
+#tab-wifi:checked ~ #panel-wifi,
 #tab-auto:checked ~ #panel-auto,
 #tab-tcp:checked ~ #panel-tcp {
   display: block;
