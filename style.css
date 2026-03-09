@@ -111,6 +111,12 @@ nav {
   margin-bottom: 2rem;
   animation: fadeInUp 0.8s ease both;
 }
+.flag-icon {
+  width: 20px;
+  height: auto;
+  display: block;
+  border-radius: 3px;
+}
 .hero-badge .pulse {
   width: 8px; height: 8px;
   background: var(--accent);
