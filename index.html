@@ -1,0 +1,480 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reticulum Portugal — Comunicação soberana, encriptada, sem infraestrutura</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="mesh-bg"></canvas>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">RETICULUM <span>// PT</span></a>
+  <div class="nav-links">
+    <a href="#o-que-e">O que é</a>
+    <a href="#como-funciona">Como funciona</a>
+    <a href="#aplicacoes">Apps</a>
+    <a href="#hardware">Hardware</a>
+    <a href="#comunidade">Comunidade</a>
+    <a href="https://reticulum.network/start.html" target="_blank" class="nav-cta">Começar</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">
+    <span>🇵🇹</span>
+    COMUNIDADE PORTUGUESA
+  </div>
+  <h1>Comunicação <span class="highlight">soberana</span>,<br>encriptada, sem infraestrutura</h1>
+  <p class="hero-sub">
+    O Reticulum é um stack de rede baseado em criptografia para construir redes locais e de longa distância com hardware acessível. Sem vigilância. Sem censura. Sem controlo centralizado.
+  </p>
+  <div class="hero-actions">
+    <a href="https://reticulum.network/start.html" target="_blank" class="btn btn-primary">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      Começar agora
+    </a>
+    <a href="https://github.com/markqvist/Reticulum" target="_blank" class="btn btn-outline">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+      Código fonte
+    </a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="num">5 bps+</div>
+      <div class="label">Largura mínima</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">E2EE</div>
+      <div class="label">Encriptação total</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">∞</div>
+      <div class="label">Redes possíveis</div>
+    </div>
+  </div>
+</div>
+
+<!-- O QUE É -->
+<section id="o-que-e">
+  <div class="container fade-in">
+    <div class="section-label">// Visão geral</div>
+    <h2 class="section-title">O que é o Reticulum?</h2>
+    <p class="section-desc">
+      Uma ferramenta para construir milhares de redes — sem kill-switches, sem vigilância, sem censura. Redes para seres humanos.
+    </p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔐</div>
+        <h3>Criptografia por defeito</h3>
+        <p>Toda a comunicação é encriptada com criptografia de curva elíptica e AES. Não é possível enviar pacotes sem encriptação na rede.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌐</div>
+        <h3>Agnóstico ao meio</h3>
+        <p>Funciona sobre LoRa, packet radio, WiFi, Ethernet, ligações série, links ópticos e praticamente qualquer meio com 5 bps e 500 bytes de MTU.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <h3>Sem endereços de origem</h3>
+        <p>Nenhum pacote contém informação sobre o endereço, local, máquina ou pessoa de onde originou. Anonimato do iniciador por design.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔄</div>
+        <h3>Auto-configurável</h3>
+        <p>A rede forma-se automaticamente. Sem necessidade de configurar endereços IP, sub-redes, tabelas de roteamento ou hierarquias.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📡</div>
+        <h3>Endereços portáteis</h3>
+        <p>Os endereços são soberanos e portáteis. Uma vez criados, podem mover-se fisicamente para outro ponto da rede e continuar acessíveis.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔗</div>
+        <h3>Forward Secrecy</h3>
+        <p>Chaves efémeras e troca de chaves ECDH em Curve25519 garantem forward secrecy por defeito em todas as ligações.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section id="como-funciona">
+  <div class="container fade-in">
+    <div class="section-label">// Começar</div>
+    <h2 class="section-title">Como funciona?</h2>
+    <p class="section-desc">
+      Do zero à tua primeira rede mesh encriptada em minutos.
+    </p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">01</div>
+        <h3>Instalar o Reticulum</h3>
+        <p>Uma única linha de comando. Funciona em Linux, macOS, Windows, Raspberry Pi e Android.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">02</div>
+        <h3>Ligar interfaces</h3>
+        <p>Configura rádios LoRa, WiFi, Ethernet, packet radio ou qualquer combinação de meios disponíveis.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">03</div>
+        <h3>Mesh automática</h3>
+        <p>O Reticulum trata do resto. Dispositivos em qualquer meio podem comunicar entre si automaticamente.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">04</div>
+        <h3>Comunicar</h3>
+        <p>Usa o Sideband, Nomad Network ou MeshChat para mensagens, chamadas de voz e transferência de ficheiros.</p>
+      </div>
+    </div>
+    <div class="code-block">
+      <pre><span class="comment"># Instalação rápida</span>
+<span class="cmd">pip install</span> <span class="flag">rns</span>
+
+<span class="comment"># Iniciar o daemon</span>
+<span class="cmd">rnsd</span>
+
+<span class="comment"># Ver estado da rede</span>
+<span class="cmd">rnstatus</span>
+
+<span class="comment"># Explorar nós na testnet</span>
+<span class="cmd">rnprobe</span> <span class="flag">&lt;destination_hash&gt;</span></pre>
+    </div>
+  </div>
+</section>
+
+<!-- APLICAÇÕES -->
+<section id="aplicacoes">
+  <div class="container fade-in">
+    <div class="section-label">// Ecossistema</div>
+    <h2 class="section-title">Aplicações</h2>
+    <p class="section-desc">
+      O ecossistema Reticulum inclui apps prontas a usar para comunicação segura e descentralizada.
+    </p>
+    <div class="apps-grid">
+      <div class="app-card">
+        <div class="app-name">Sideband</div>
+        <p class="desc">App gráfica para Android, Linux, macOS e Windows com mensagens, chamadas de voz em tempo real, transferência de ficheiros, telemetria e mapas.</p>
+        <div class="app-tags">
+          <span class="app-tag">Android</span>
+          <span class="app-tag">Desktop</span>
+          <span class="app-tag">Chamadas</span>
+          <span class="app-tag">Mapas</span>
+        </div>
+      </div>
+      <div class="app-card">
+        <div class="app-name">Nomad Network</div>
+        <p class="desc">Plataforma de comunicação mesh off-grid, encriptada e resiliente. Interface terminal com sistema de páginas e messaging.</p>
+        <div class="app-tags">
+          <span class="app-tag">Terminal</span>
+          <span class="app-tag">Off-grid</span>
+          <span class="app-tag">Páginas</span>
+        </div>
+      </div>
+      <div class="app-card">
+        <div class="app-name">MeshChat</div>
+        <p class="desc">Cliente LXMF com interface web, amigável e acessível. Suporta mensagens de imagem, voz e transferência de ficheiros.</p>
+        <div class="app-tags">
+          <span class="app-tag">Web UI</span>
+          <span class="app-tag">LXMF</span>
+          <span class="app-tag">Ficheiros</span>
+        </div>
+      </div>
+      <div class="app-card">
+        <div class="app-name">LXST / rnphone</div>
+        <p class="desc">Protocolo de transporte de áudio em tempo real sobre Reticulum. Permite construir telefones hardware para comunicação mesh.</p>
+        <div class="app-tags">
+          <span class="app-tag">Voz</span>
+          <span class="app-tag">Hardware</span>
+          <span class="app-tag">Codec2</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HARDWARE -->
+<section id="hardware">
+  <div class="container fade-in">
+    <div class="section-label">// Hardware</div>
+    <h2 class="section-title">Hardware compatível</h2>
+    <p class="section-desc">
+      O Reticulum funciona com hardware barato e acessível. As placas LoRa mais populares podem ser transformadas em RNodes com firmware open-source.
+    </p>
+    <div class="hw-grid">
+      <div class="hw-card">
+        <h4>LilyGO T-Beam</h4>
+        <p>Popular e versátil, com GPS integrado e boa capacidade de bateria.</p>
+        <span class="freq">868 MHz (EU)</span>
+      </div>
+      <div class="hw-card">
+        <h4>LilyGO T3S3 / LoRa32</h4>
+        <p>Compacto e económico, ideal para nós fixos e experiências.</p>
+        <span class="freq">868 MHz (EU)</span>
+      </div>
+      <div class="hw-card">
+        <h4>Heltec LoRa32 V3</h4>
+        <p>Com ecrã OLED integrado e boa sensibilidade de receção.</p>
+        <span class="freq">868 MHz (EU)</span>
+      </div>
+      <div class="hw-card">
+        <h4>RAK4631</h4>
+        <p>Módulo modular baseado em nRF52840 com LoRa SX1262.</p>
+        <span class="freq">868 MHz (EU)</span>
+      </div>
+      <div class="hw-card">
+        <h4>Raspberry Pi + Módulo LoRa</h4>
+        <p>Gateway perfeito para ligar redes LoRa a WiFi/Ethernet/Internet.</p>
+        <span class="freq">Multi-interface</span>
+      </div>
+      <div class="hw-card">
+        <h4>Packet Radio TNC</h4>
+        <p>Para radioamadores: AX.25 TNCs e modos digitais em VHF/UHF/HF.</p>
+        <span class="freq">Amador</span>
+      </div>
+    </div>
+
+    <div class="ism-note">
+      <div class="icon">⚠️</div>
+      <div>
+        <p><strong>Nota para Portugal:</strong> A banda ISM europeia para LoRa é <strong>868 MHz</strong> (bandas 863–870 MHz) com limite de potência de 25 mW ERP e duty cycle de 1% na maioria dos sub-canais. Verifica sempre a regulamentação da ANACOM antes de emitir. Radioamadores com licença podem operar com mais potência nas bandas de amador.</p>
+      </div>
+    </div>
+
+    <!-- RNODE CONFIG -->
+    <div class="rnode-config">
+      <div class="rnode-config-header">
+        <div class="feature-icon" style="margin-bottom: 0;">📻</div>
+        <div>
+          <h3>Configuração RNode para 868 MHz</h3>
+          <p>Parâmetros recomendados para operar um RNode LoRa em Portugal. Adiciona este bloco ao ficheiro de configuração do Reticulum (<code>~/.reticulum/config</code>).</p>
+        </div>
+      </div>
+      <div class="code-block" style="margin-top: 1.2rem;">
+        <pre><span class="comment"># Interface RNode LoRa — 868 MHz (Europa / Portugal)</span>
+
+  <span class="cmd">[[RNode LoRa Interface]]</span>
+    <span class="flag">type</span> = RNodeInterface
+    <span class="flag">port</span> = /dev/ttyUSB0
+    <span class="flag">frequency</span> = <span class="cmd">869650000</span>
+    <span class="flag">bandwidth</span> = <span class="cmd">62500</span>
+    <span class="flag">txpower</span> = <span class="cmd">22</span>
+    <span class="flag">spreadingfactor</span> = <span class="cmd">7</span>
+    <span class="flag">codingrate</span> = <span class="cmd">5</span></pre>
+      </div>
+      <div class="config-params">
+        <div class="config-param">
+          <span class="param-label">frequency</span>
+          <span class="param-value">869.650 MHz</span>
+          <span class="param-desc">Sub-banda g3 (869.4–869.65 MHz) — permite até 500 mW ERP e 10% duty cycle</span>
+        </div>
+        <div class="config-param">
+          <span class="param-label">bandwidth</span>
+          <span class="param-value">62.5 kHz</span>
+          <span class="param-desc">Largura de banda do canal — bom equilíbrio entre alcance e débito</span>
+        </div>
+        <div class="config-param">
+          <span class="param-label">txpower</span>
+          <span class="param-value">22 dBm</span>
+          <span class="param-desc">Potência de transmissão (~158 mW) — dentro do limite de 500 mW da sub-banda g3</span>
+        </div>
+        <div class="config-param">
+          <span class="param-label">spreadingfactor</span>
+          <span class="param-value">SF7</span>
+          <span class="param-desc">Fator de espalhamento mais rápido — maior débito, menor alcance vs SF12</span>
+        </div>
+        <div class="config-param">
+          <span class="param-label">codingrate</span>
+          <span class="param-value">4/5</span>
+          <span class="param-desc">Menor redundância FEC — maximiza a taxa de dados útil</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMUNIDADE PT -->
+<section id="comunidade" class="community-section">
+  <div class="container fade-in">
+    <div class="section-label">// Comunidade</div>
+    <h2 class="section-title">Reticulum em Portugal</h2>
+    <div class="community-content">
+      <div class="community-text">
+        <p>
+          Portugal tem uma comunidade crescente de entusiastas de redes mesh, radioamadores e defensores da comunicação descentralizada. O Reticulum é especialmente relevante para quem já trabalha com packet radio, HAMNET ou redes de emergência.
+        </p>
+        <p>
+          Quer sejas radioamador, maker, ou simplesmente alguém que acredita na comunicação livre — há espaço para ti nesta comunidade.
+        </p>
+        <p>
+          Estamos a construir uma rede de nós Reticulum em Portugal. Com hardware a partir de ~15€ e alguma curiosidade, podes fazer parte de uma rede de comunicação resiliente e soberana.
+        </p>
+      </div>
+      <div class="community-links">
+        <a href="https://github.com/markqvist/Reticulum" target="_blank" class="community-link">
+          <div class="icon">📦</div>
+          <div class="link-text">
+            <h4>GitHub — Código Fonte</h4>
+            <p>Repositório oficial do Reticulum</p>
+          </div>
+        </a>
+        <a href="https://reticulum.network/manual/" target="_blank" class="community-link">
+          <div class="icon">📖</div>
+          <div class="link-text">
+            <h4>Manual Completo</h4>
+            <p>Documentação técnica detalhada</p>
+          </div>
+        </a>
+        <a href="https://reticulum.network/start.html" target="_blank" class="community-link">
+          <div class="icon">🚀</div>
+          <div class="link-text">
+            <h4>Guia de Início Rápido</h4>
+            <p>Do zero à tua primeira rede</p>
+          </div>
+        </a>
+        <a href="https://reticulum.network/connect.html" target="_blank" class="community-link">
+          <div class="icon">🤝</div>
+          <div class="link-text">
+            <h4>Conectar à Testnet</h4>
+            <p>Junta-te à rede de testes global</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container fade-in">
+    <h2>Constrói a tua<br><span class="highlight" style="background: linear-gradient(135deg, var(--accent), #00c2ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">rede soberana</span></h2>
+    <p>Começa hoje. Uma linha de código. Um rádio LoRa. Comunicação livre e encriptada, para sempre.</p>
+    <div class="hero-actions">
+      <a href="https://reticulum.network/start.html" target="_blank" class="btn btn-primary">
+        Começar agora
+      </a>
+      <a href="https://reticulum.network/crypto.html" target="_blank" class="btn btn-outline">
+        Saber mais sobre a criptografia
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      Página da comunidade portuguesa · Projecto open-source por <a href="https://github.com/markqvist" target="_blank">Mark Qvist</a>
+    </div>
+    <div class="footer-links">
+      <a href="https://reticulum.network/" target="_blank">reticulum.network</a>
+      <a href="https://github.com/markqvist/Reticulum" target="_blank">GitHub</a>
+      <a href="https://reticulum.network/donate.html" target="_blank">Doar</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ─── MESH BACKGROUND ───
+const canvas = document.getElementById('mesh-bg');
+const ctx = canvas.getContext('2d');
+let nodes = [];
+let mouse = { x: -1000, y: -1000 };
+const NODE_COUNT = 60;
+const CONNECT_DIST = 180;
+const MOUSE_DIST = 250;
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+for (let i = 0; i < NODE_COUNT; i++) {
+  nodes.push({
+    x: Math.random() * window.innerWidth,
+    y: Math.random() * window.innerHeight,
+    vx: (Math.random() - 0.5) * 0.4,
+    vy: (Math.random() - 0.5) * 0.4,
+    r: Math.random() * 2 + 1
+  });
+}
+
+document.addEventListener('mousemove', e => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+});
+
+function drawMesh() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  nodes.forEach(n => {
+    n.x += n.vx;
+    n.y += n.vy;
+    if (n.x < 0 || n.x > canvas.width) n.vx *= -1;
+    if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
+  });
+
+  for (let i = 0; i < nodes.length; i++) {
+    for (let j = i + 1; j < nodes.length; j++) {
+      const dx = nodes[i].x - nodes[j].x;
+      const dy = nodes[i].y - nodes[j].y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < CONNECT_DIST) {
+        const alpha = (1 - dist / CONNECT_DIST) * 0.3;
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(0, 229, 160, ${alpha})`;
+        ctx.lineWidth = 0.5;
+        ctx.moveTo(nodes[i].x, nodes[i].y);
+        ctx.lineTo(nodes[j].x, nodes[j].y);
+        ctx.stroke();
+      }
+    }
+  }
+
+  nodes.forEach(n => {
+    const dx = n.x - mouse.x;
+    const dy = n.y - mouse.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    let glow = 0;
+    if (dist < MOUSE_DIST) {
+      glow = (1 - dist / MOUSE_DIST) * 0.8;
+    }
+
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(0, 229, 160, ${0.4 + glow * 0.6})`;
+    ctx.fill();
+
+    if (glow > 0.1) {
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r + 4, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(0, 229, 160, ${glow * 0.2})`;
+      ctx.fill();
+    }
+  });
+
+  requestAnimationFrame(drawMesh);
+}
+drawMesh();
+
+// ─── SCROLL ANIMATIONS ───
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
