@@ -1,9 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Comunidade portuguesa de Reticulum — stack de rede encriptado para comunicação soberana via LoRa, packet radio, WiFi e mais. Sem vigilância, sem censura.">
+<meta name="theme-color" content="#0a0c10">
 <title>Reticulum Portugal — Comunicação soberana, encriptada, sem infraestrutura</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -15,6 +16,9 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">RETICULUM <span>// PT</span></a>
+  <button class="nav-hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
   <div class="nav-links">
     <a href="#o-que-e">O que é</a>
     <a href="#como-funciona">Como funciona</a>
@@ -45,20 +49,7 @@
       Código fonte
     </a>
   </div>
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <div class="num">5 bps+</div>
-      <div class="label">Largura mínima</div>
-    </div>
-    <div class="hero-stat">
-      <div class="num">E2EE</div>
-      <div class="label">Encriptação total</div>
-    </div>
-    <div class="hero-stat">
-      <div class="num">∞</div>
-      <div class="label">Redes possíveis</div>
-    </div>
-  </div>
+
 </div>
 
 <!-- O QUE É -->
@@ -297,7 +288,7 @@
     <!-- INTERFACE CONFIGS -->
     <div class="iface-config">
       <div class="iface-config-header">
-        <div class="feature-icon" style="margin-bottom: 0;">📻</div>
+        <div class="feature-icon iface-config-icon"><img src="img/icons/connection-signal.svg" alt="Configurações" /></div>
         <div>
           <h3>Configurações de Interface</h3>
           <p>Exemplos de configuração para o ficheiro <code>~/.reticulum/config</code>. Escolhe a interface adequada ao teu setup.</p>
@@ -593,7 +584,7 @@
 <!-- CTA -->
 <section class="cta-section">
   <div class="container fade-in">
-    <h2>Constrói a tua<br><span class="highlight" style="background: linear-gradient(135deg, var(--accent), #00c2ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">rede soberana</span></h2>
+    <h2>Constrói a tua<br><span class="highlight">rede soberana</span></h2>
     <p>Começa hoje. Uma linha de código. Um rádio LoRa. Comunicação livre e encriptada, para sempre.</p>
     <div class="hero-actions">
       <a href="https://reticulum.network/start_pt-br.html" target="_blank" class="btn btn-primary">

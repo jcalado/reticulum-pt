@@ -59,3 +59,26 @@ The RNode config example uses sub-band g3 (869.4–869.65 MHz) at 22 dBm / SF7 /
 - Maintain the existing dark theme visual style
 - The site is a single HTML page — avoid unnecessary complexity
 - When updating regulatory info, reference ANACOM as the authority
+
+## Design Context
+
+### Users
+Privacy advocates, developers/hackers, and technical hobbyists in Portugal — people who understand (or want to understand) mesh networking, cryptography, and decentralized communication. They arrive with curiosity and technical intent: configuring hardware, deploying nodes, or evaluating Reticulum for resilient comms. Context ranges from ham radio operators building emergency networks to privacy-minded developers exploring off-grid alternatives.
+
+### Brand Personality
+**Rebellious, technical, empowering.** Cypherpunk spirit — defiant against surveillance and centralization, deeply capable, putting sovereign communication power directly in users' hands. The tone is confident and direct, never corporate or patronizing.
+
+### Aesthetic Direction
+- **Dark theme** (`#0a0c10` background) with green accent (`#00e5a0`) and blue secondary (`#00c2ff`) — the current palette is definitive
+- **Hacker/terminal aesthetic**: Space Mono for code and labels, monospace section labels with `//` prefix, code blocks as first-class content
+- **Animated mesh background** reinforces the network/mesh concept visually
+- **Multicolor feature card accents** (green, blue, purple, orange, pink, cyan) add variety within the dark canvas
+- **Subtle glow effects** on hover and interactive elements — never flashy, always purposeful
+- **Anti-references**: Generic SaaS landing pages, corporate tech sites, anything with stock photos or rounded-friendly aesthetics. This should feel like infrastructure built by people who care, not a product being sold.
+
+### Design Principles
+1. **Sovereignty over polish** — The design should feel empowering and independent, not slick or commercial. Raw capability > marketing sheen.
+2. **Technical honesty** — Show real configs, real commands, real parameters. The audience respects specificity; never abstract away the technical substance.
+3. **Dark by nature** — The dark theme isn't a preference toggle, it's the identity. Green-on-dark evokes terminals, encrypted channels, and underground networks.
+4. **Progressive disclosure** — Lead with the vision ("comunicação soberana"), then reveal technical depth (configs, frequencies, code). Respect both newcomers and experts.
+5. **Community, not product** — This is a grassroots Portuguese community page, not a startup. Design should invite participation, not conversion.

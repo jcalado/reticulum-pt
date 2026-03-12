@@ -82,6 +82,26 @@ function drawMesh() {
 }
 drawMesh();
 
+// ─── MOBILE NAV ───
+const hamburger = document.querySelector('.nav-hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navLinks.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+  document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+});
+
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  });
+});
+
 // ─── SCROLL ANIMATIONS ───
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
@@ -90,3 +110,19 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.15 });
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ─── STAGGERED REVEALS ───
+const staggerObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const children = e.target.querySelectorAll('.feature-card, .step, .hw-card, .app-card-h, .community-link');
+      children.forEach((child, i) => {
+        child.style.transitionDelay = `${i * 0.08}s`;
+        child.classList.add('stagger-visible');
+      });
+      staggerObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.features-grid, .steps, .hw-grid, .apps-list, .community-links').forEach(el => staggerObserver.observe(el));
