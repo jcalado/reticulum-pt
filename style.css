@@ -745,9 +745,40 @@ section {
   flex-shrink: 0;
   color: var(--accent);
 }
+.community-link .link-text {
+  position: relative;
+  height: 1.3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: visible;
+}
 .community-link .link-text h4 {
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   font-weight: 600;
+  line-height: 1.3;
+  transition: font-size 0.3s ease, transform 0.3s ease;
+  transform: translateY(0);
+}
+.community-link .link-text p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  margin: 0;
+  white-space: nowrap;
+}
+.community-link:hover .link-text h4 {
+  font-size: 0.9rem;
+  transform: translateY(-0.3em);
+}
+.community-link:hover .link-text p {
+  opacity: 1;
+  transform: translateY(-2px);
 }
 
 /* Community link accent colors */
@@ -771,11 +802,6 @@ section {
   background: color-mix(in srgb, var(--link-accent) 3%, transparent);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-}
-.community-link .link-text p {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  margin: 0;
 }
 
 /* ─── ISM PT NOTE ─── */
