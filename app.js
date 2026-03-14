@@ -3,9 +3,12 @@ const canvas = document.getElementById('mesh-bg');
 const ctx = canvas.getContext('2d');
 let nodes = [];
 let mouse = { x: -1000, y: -1000 };
-const NODE_COUNT = 60;
+const NODE_COUNT = window.innerWidth < 768 ? 35 : 60;
 const CONNECT_DIST = 180;
+const CONNECT_DIST_SQ = CONNECT_DIST * CONNECT_DIST;
 const MOUSE_DIST = 250;
+const MOUSE_DIST_SQ = MOUSE_DIST * MOUSE_DIST;
+let animId = null;
 
 function resize() {
   canvas.width = window.innerWidth;
@@ -30,25 +33,28 @@ document.addEventListener('mousemove', e => {
 });
 
 function drawMesh() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const w = canvas.width;
+  const h = canvas.height;
+  ctx.clearRect(0, 0, w, h);
 
-  nodes.forEach(n => {
+  for (let i = 0; i < nodes.length; i++) {
+    const n = nodes[i];
     n.x += n.vx;
     n.y += n.vy;
-    if (n.x < 0 || n.x > canvas.width) n.vx *= -1;
-    if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
-  });
+    if (n.x < 0 || n.x > w) n.vx *= -1;
+    if (n.y < 0 || n.y > h) n.vy *= -1;
+  }
 
+  ctx.lineWidth = 0.5;
   for (let i = 0; i < nodes.length; i++) {
     for (let j = i + 1; j < nodes.length; j++) {
       const dx = nodes[i].x - nodes[j].x;
       const dy = nodes[i].y - nodes[j].y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < CONNECT_DIST) {
-        const alpha = (1 - dist / CONNECT_DIST) * 0.3;
+      const distSq = dx * dx + dy * dy;
+      if (distSq < CONNECT_DIST_SQ) {
+        const alpha = (1 - Math.sqrt(distSq) / CONNECT_DIST) * 0.3;
         ctx.beginPath();
         ctx.strokeStyle = `rgba(0, 229, 160, ${alpha})`;
-        ctx.lineWidth = 0.5;
         ctx.moveTo(nodes[i].x, nodes[i].y);
         ctx.lineTo(nodes[j].x, nodes[j].y);
         ctx.stroke();
@@ -56,13 +62,16 @@ function drawMesh() {
     }
   }
 
-  nodes.forEach(n => {
-    const dx = n.x - mouse.x;
-    const dy = n.y - mouse.y;
-    const dist = Math.sqrt(dx * dx + dy * dy);
+  const mx = mouse.x;
+  const my = mouse.y;
+  for (let i = 0; i < nodes.length; i++) {
+    const n = nodes[i];
+    const dx = n.x - mx;
+    const dy = n.y - my;
+    const distSq = dx * dx + dy * dy;
     let glow = 0;
-    if (dist < MOUSE_DIST) {
-      glow = (1 - dist / MOUSE_DIST) * 0.8;
+    if (distSq < MOUSE_DIST_SQ) {
+      glow = (1 - Math.sqrt(distSq) / MOUSE_DIST) * 0.8;
     }
 
     ctx.beginPath();
@@ -76,10 +85,23 @@ function drawMesh() {
       ctx.fillStyle = `rgba(0, 229, 160, ${glow * 0.2})`;
       ctx.fill();
     }
-  });
+  }
 
-  requestAnimationFrame(drawMesh);
+  animId = requestAnimationFrame(drawMesh);
 }
+
+// Pause animation when tab is hidden to save CPU/battery
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    if (animId) {
+      cancelAnimationFrame(animId);
+      animId = null;
+    }
+  } else if (!animId) {
+    drawMesh();
+  }
+});
+
 drawMesh();
 
 // ─── MOBILE NAV ───
@@ -100,6 +122,29 @@ navLinks.querySelectorAll('a').forEach(a => {
     hamburger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   });
+});
+
+// ─── HARDWARE LIGHTBOX ───
+const lightbox = document.getElementById('hw-lightbox');
+const lightboxImg = lightbox.querySelector('img');
+const lightboxLabel = lightbox.querySelector('.hw-lightbox-label');
+
+document.querySelectorAll('.hw-thumb').forEach(img => {
+  img.addEventListener('click', e => {
+    e.stopPropagation();
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightboxLabel.textContent = img.alt;
+    lightbox.classList.add('active');
+  });
+});
+
+lightbox.addEventListener('click', () => {
+  lightbox.classList.remove('active');
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') lightbox.classList.remove('active');
 });
 
 // ─── SCROLL ANIMATIONS ───
@@ -125,4 +170,4 @@ const staggerObserver = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.features-grid, .steps, .hw-grid, .apps-list, .community-links').forEach(el => staggerObserver.observe(el));
+document.querySelectorAll('.features-grid, .steps, .hw-grid, .apps-list, .apps-scroll, .community-links').forEach(el => staggerObserver.observe(el));

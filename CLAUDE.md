@@ -68,6 +68,12 @@ Privacy advocates, developers/hackers, and technical hobbyists in Portugal — p
 ### Brand Personality
 **Rebellious, technical, empowering.** Cypherpunk spirit — defiant against surveillance and centralization, deeply capable, putting sovereign communication power directly in users' hands. The tone is confident and direct, never corporate or patronizing.
 
+### Emotional Goals
+The interface should layer three emotional registers:
+1. **Curiosity + confidence** — "This is fascinating and I can do this." Draw people in technically, make it feel achievable.
+2. **Empowerment + urgency** — "I need to be part of this." A call to action, defiance against the status quo.
+3. **Trust + belonging** — "These are my people." Community warmth within a technical, underground context.
+
 ### Aesthetic Direction
 - **Dark theme** (`#0a0c10` background) with green accent (`#00e5a0`) and blue secondary (`#00c2ff`) — the current palette is definitive
 - **Hacker/terminal aesthetic**: Space Mono for code and labels, monospace section labels with `//` prefix, code blocks as first-class content
@@ -75,6 +81,13 @@ Privacy advocates, developers/hackers, and technical hobbyists in Portugal — p
 - **Multicolor feature card accents** (green, blue, purple, orange, pink, cyan) add variety within the dark canvas
 - **Subtle glow effects** on hover and interactive elements — never flashy, always purposeful
 - **Anti-references**: Generic SaaS landing pages, corporate tech sites, anything with stock photos or rounded-friendly aesthetics. This should feel like infrastructure built by people who care, not a product being sold.
+
+### Accessibility
+No formal WCAG target, but maintain and extend current accessibility features:
+- `prefers-reduced-motion` respected (animations disabled)
+- `focus-visible` outlines on all interactive elements
+- Semantic HTML structure
+- Sufficient color contrast for body text on dark backgrounds
 
 ### Design Principles
 1. **Sovereignty over polish** — The design should feel empowering and independent, not slick or commercial. Raw capability > marketing sheen.
