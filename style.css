@@ -674,17 +674,59 @@ section {
   white-space: nowrap;
 }
 @media (max-width: 768px) {
-  .hw-grid { padding: 0.5rem 1.5rem; }
+  .hw-grid {
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+  }
   .hw-card {
-    grid-template-columns: 48px 1fr auto;
-    gap: 0.5rem;
+    grid-template-columns: 44px 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.3rem 0.8rem;
+    padding: 0.9rem 0;
   }
-  .hw-card p { display: none; }
+  .hw-card h4 {
+    font-size: 0.8rem;
+    align-self: end;
+  }
+  .hw-card p {
+    grid-column: 2;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    align-self: start;
+  }
+  .hw-card .freq {
+    grid-column: 2;
+    justify-self: start;
+    font-size: 0.65rem;
+    margin-top: 0.2rem;
+  }
+  .hw-thumb {
+    width: 44px;
+    height: 44px;
+    grid-row: 1 / -1;
+    align-self: center;
+  }
   .hw-card:hover {
-    margin: 0 -1.5rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    margin: 0 -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
+  .hw-lightbox img {
+    max-width: 92vw;
+    max-height: 70vh;
+    border-radius: 8px;
+  }
+  .hw-lightbox-label {
+    bottom: 1.2rem;
+    font-size: 0.75rem;
+  }
+  .ism-note {
+    padding: 1rem 1.2rem;
+    gap: 0.7rem;
+    border-radius: 10px;
+  }
+  .ism-note .icon { font-size: 1.1rem; }
+  .ism-note p { font-size: 0.78rem; }
 }
 
 /* ─── PT COMMUNITY ─── */
@@ -946,13 +988,56 @@ section {
   font-weight: 300;
 }
 @media (max-width: 768px) {
-  .config-param {
-    grid-template-columns: 1fr;
-    gap: 0.2rem;
+  .iface-config {
+    padding: 1.2rem;
+    border-radius: 12px;
   }
   .iface-config-header {
     flex-direction: column;
+    gap: 0.8rem;
   }
+  .iface-config-header h3 {
+    font-size: 1rem;
+  }
+  .iface-config-header p {
+    font-size: 0.8rem;
+  }
+  .iface-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0.4rem;
+    margin-top: 1rem;
+    padding-bottom: 0.3rem;
+  }
+  .iface-tabs::-webkit-scrollbar { display: none; }
+  .iface-tabs label {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.7rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .code-block {
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+  .code-block pre {
+    font-size: 0.7rem;
+    line-height: 1.7;
+  }
+  .config-params {
+    gap: 0.4rem;
+    margin-top: 0.8rem;
+  }
+  .config-param {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+    padding: 0.5rem 0;
+  }
+  .param-label { font-size: 0.72rem; }
+  .param-value { font-size: 0.8rem; }
+  .param-desc { font-size: 0.72rem; }
 }
 
 /* ─── CTA SECTION ─── */
